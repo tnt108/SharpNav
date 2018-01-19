@@ -39,41 +39,6 @@
     </DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OpenTK|AnyCPU'">
-    <OutputPath>..\..\Binaries\Tests\OpenTK\</OutputPath>
-    <DefineConstants>OPENTK</DefineConstants>
-    <Optimize>true</Optimize>
-    <SignAssembly>true</SignAssembly>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SharpDX|AnyCPU'">
-    <OutputPath>..\..\Binaries\Tests\SharpDX\</OutputPath>
-    <Optimize>true</Optimize>
-    <DefineConstants>SHARPDX</DefineConstants>
-    <WarningLevel>4</WarningLevel>
-    <SignAssembly>true</SignAssembly>
-    <DocumentationFile>
-    </DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MonoGame|AnyCPU'">
-    <OutputPath>..\..\Binaries\Tests\MonoGame\</OutputPath>
-    <Optimize>false</Optimize>
-    <DefineConstants>MONOGAME</DefineConstants>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SharpNav.Tests.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>

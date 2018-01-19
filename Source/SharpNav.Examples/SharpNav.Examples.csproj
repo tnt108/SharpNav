@@ -51,14 +51,6 @@
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>..\..\Binaries\Examples\Standalone\Examples.XML</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OpenTK|AnyCPU'">
-    <OutputPath>..\..\Binaries\Examples\OpenTK\</OutputPath>
-    <DefineConstants>OPENTK</DefineConstants>
-    <Prefer32Bit>false</Prefer32Bit>
-    <Optimize>true</Optimize>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\Binaries\Examples\OpenTK\Examples.XML</DocumentationFile>
-  </PropertyGroup>
   <PropertyGroup>
     <StartupObject>SharpNav.Examples.Program</StartupObject>
   </PropertyGroup>
