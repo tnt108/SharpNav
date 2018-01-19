@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2015 Robert Rouhani <robert.rouhani@gmail.com> and other contributors (see CONTRIBUTORS file).
 // Licensed under the MIT License - https://raw.github.com/Robmaister/SharpNav/master/LICENSE
 
+#if IO_JSON
 using System;
 
 using SharpNav;
@@ -32,3 +33,4 @@ namespace SharpNav.IO.Json
 		}
 	}
 }
+#endif

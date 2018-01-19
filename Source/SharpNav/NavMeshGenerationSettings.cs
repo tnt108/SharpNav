@@ -3,7 +3,9 @@
 
 using System;
 
+#if IO_YAML
 using YamlDotNet.Serialization;
+#endif
 
 namespace SharpNav
 {
@@ -121,11 +123,13 @@ namespace SharpNav
 		/// </summary>
 		public bool BuildBoundingVolumeTree { get; set; }
 
-		/// <summary>
-		/// Gets the height of the agents traversing the <see cref="NavMesh"/> in voxel (cell) units.
-		/// </summary>
-		[YamlIgnore]
-		public int VoxelAgentHeight
+        /// <summary>
+        /// Gets the height of the agents traversing the <see cref="NavMesh"/> in voxel (cell) units.
+        /// </summary>
+#if IO_YAML
+        [YamlIgnore]
+#endif
+        public int VoxelAgentHeight
 		{
 			get
 			{
@@ -133,11 +137,13 @@ namespace SharpNav
 			}
 		}
 
-		/// <summary>
-		/// Gets the maximum clim height in voxel (cell) units.
-		/// </summary>
-		[YamlIgnore]
-		public int VoxelMaxClimb
+        /// <summary>
+        /// Gets the maximum clim height in voxel (cell) units.
+        /// </summary>
+#if IO_YAML
+        [YamlIgnore]
+#endif
+        public int VoxelMaxClimb
 		{
 			get
 			{
@@ -145,11 +151,13 @@ namespace SharpNav
 			}
 		}
 
-		/// <summary>
-		/// Gets the radius of the agents traversing the <see cref="NavMesh"/> in voxel (cell) units.
-		/// </summary>
-		[YamlIgnore]
-		public int VoxelAgentRadius
+        /// <summary>
+        /// Gets the radius of the agents traversing the <see cref="NavMesh"/> in voxel (cell) units.
+        /// </summary>
+#if IO_YAML
+        [YamlIgnore]
+#endif
+        public int VoxelAgentRadius
 		{
 			get
 			{

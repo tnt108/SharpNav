@@ -4,7 +4,9 @@
 using System;
 using System.Collections.Generic;
 
+#if IO_JSON
 using Newtonsoft.Json;
+#endif
 
 using SharpNav;
 
@@ -65,10 +67,12 @@ namespace SharpNav.Geometry
 			Max.Z = maxZ;
 		}
 
-		/// <summary>
-		/// Gets the center of the box.
-		/// </summary>
+        /// <summary>
+        /// Gets the center of the box.
+        /// </summary>
+#if IO_JSON
 		[JsonIgnore]
+#endif
 		public Vector3 Center
 		{
 			get
@@ -77,11 +81,13 @@ namespace SharpNav.Geometry
 			}
 		}
 
-		/// <summary>
-		/// Gets the size of the box.
-		/// </summary>
+        /// <summary>
+        /// Gets the size of the box.
+        /// </summary>
+#if IO_JSON
 		[JsonIgnore]
-		public Vector3 Size
+#endif
+        public Vector3 Size
 		{
 			get
 			{

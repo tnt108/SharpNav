@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\Binaries\SharpNav\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;STANDALONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;STANDALONE;IO_JSON;IO_YAML</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <SignAssembly>true</SignAssembly>
@@ -32,7 +32,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\Binaries\SharpNav\Standalone\</OutputPath>
-    <DefineConstants>TRACE;STANDALONE</DefineConstants>
+    <DefineConstants>TRACE;STANDALONE;IO_JSON;IO_YAML</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <SignAssembly>true</SignAssembly>

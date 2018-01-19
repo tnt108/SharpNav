@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!-- Properties for all configurations -->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05F45BAA-A855-4785-8E37-640087EE19DF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpNav</RootNamespace>
+    <AssemblyName>SharpNav</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>212ed65d</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Binaries\SharpNav.Lit\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;STANDALONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpNav.snk</AssemblyOriginatorKeyFile>
+    <DocumentationFile>..\..\Binaries\SharpNav.Lit\Debug\SharpNav.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Standalone|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Binaries\SharpNav.Lit\Standalone\</OutputPath>
+    <DefineConstants>TRACE;STANDALONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpNav.snk</AssemblyOriginatorKeyFile>
+    <DocumentationFile>..\..\Binaries\SharpNav.Lit\Standalone\SharpNav.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <!-- Common items -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <!-- Configuration specific items -->
+  <!-- C# items -->
+  <ItemGroup>
+    <Compile Include="..\SharpNav\Area.cs" />
+    <Compile Include="..\SharpNav\AreaGenerator.cs" />
+    <Compile Include="..\SharpNav\Cell.cs" />
+    <Compile Include="..\SharpNav\Collections\Generic\BufferedQueue.cs" />
+    <Compile Include="..\SharpNav\Collections\Generic\BufferedStack.cs" />
+    <Compile Include="..\SharpNav\Collections\BVTree.cs" />
+    <Compile Include="..\SharpNav\Collections\Generic\IValueWithCost.cs" />
+    <Compile Include="..\SharpNav\Collections\Generic\PriorityQueue.cs" />
+    <Compile Include="..\SharpNav\CompactCell.cs" />
+    <Compile Include="..\SharpNav\CompactSpan.cs" />
+    <Compile Include="..\SharpNav\CompactSpanReference.cs" />
+    <Compile Include="..\SharpNav\Contour.cs" />
+    <Compile Include="..\SharpNav\ContourBuildFlags.cs" />
+    <Compile Include="..\SharpNav\ContourSet.cs" />
+    <Compile Include="..\SharpNav\ContourVertex.cs" />
+    <Compile Include="..\SharpNav\Crowds\Agent.cs" />
+    <Compile Include="..\SharpNav\Crowds\Crowd.cs" />
+    <Compile Include="..\SharpNav\Crowds\CrowdAgentState.cs" />
+    <Compile Include="..\SharpNav\Crowds\Status.cs" />
+    <Compile Include="..\SharpNav\Crowds\TargetState.cs" />
+    <Compile Include="..\SharpNav\Crowds\UpdateFlags.cs" />
+    <Compile Include="..\SharpNav\Direction.cs" />
+    <Compile Include="..\SharpNav\EdgeFlags.cs" />
+    <Compile Include="..\SharpNav\Geometry\BBox2i.cs" />
+    <Compile Include="..\SharpNav\Geometry\Containment.cs" />
+    <Compile Include="..\SharpNav\Geometry\Distance.cs" />
+    <Compile Include="..\SharpNav\Geometry\Intersection.cs" />
+    <Compile Include="..\SharpNav\Geometry\TriangleEnumerable.cs" />
+    <Compile Include="..\SharpNav\Geometry\Vector2i.cs" />
+    <Compile Include="..\SharpNav\Heightfield.Rasterization.cs" />
+    <Compile Include="..\SharpNav\HeightPatch.cs" />
+    <Compile Include="..\SharpNav\Crowds\LocalBoundary.cs" />
+    <Compile Include="..\SharpNav\IO\Json\AreaConverter.cs" />
+    <Compile Include="..\SharpNav\IO\Json\PolyIdConverter.cs" />
+    <Compile Include="..\SharpNav\IO\Json\Vector3Converter.cs" />
+    <Compile Include="..\SharpNav\IO\Json\NavMeshJsonSerializer.cs" />
+    <Compile Include="..\SharpNav\IO\NavMeshConfigurationFile.cs" />
+    <Compile Include="..\SharpNav\IO\NavMeshSerializer.cs" />
+    <Compile Include="..\SharpNav\NavMesh.cs" />
+    <Compile Include="..\SharpNav\NavMeshGenerationSettings.cs" />
+    <Compile Include="..\SharpNav\Crowds\ObstacleAvoidanceQuery.cs" />
+    <Compile Include="..\SharpNav\Crowds\PathCorridor.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\BoundarySide.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\FindPathOptions.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\Link.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\NavTile.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\OffMeshConnection.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\NavPoint.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\Path.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\PathBuildFlags.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\NavPoly.cs" />
+    <Compile Include="..\SharpNav\Crowds\PathQueue.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\NavPolyId.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\NavPolyIdManager.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\NavQueryFilter.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\RaycastHit.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\RaycastOptions.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\StraightPathFlags.cs" />
+    <Compile Include="..\SharpNav\PolyBounds.cs" />
+    <Compile Include="..\SharpNav\PolyMesh.cs" />
+    <Compile Include="..\SharpNav\NavMeshBuilder.cs" />
+    <Compile Include="..\SharpNav\PolyMeshDetail.cs" />
+    <Compile Include="..\SharpNav\NavMeshQuery.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\NavNode.cs" />
+    <Compile Include="..\SharpNav\NodePool.cs" />
+    <Compile Include="..\SharpNav\NodeFlags.cs" />
+    <Compile Include="..\SharpNav\Pathfinding\PathfindingCommon.cs" />
+    <Compile Include="..\SharpNav\PolyVertex.cs" />
+    <Compile Include="..\SharpNav\Collections\Generic\ProximityGrid.cs" />
+    <Compile Include="..\SharpNav\Region.cs" />
+    <Compile Include="..\SharpNav\Geometry\BBox3.cs" />
+    <Compile Include="..\SharpNav\Geometry\Triangle3.cs" />
+    <Compile Include="..\SharpNav\Heightfield.cs" />
+    <Compile Include="..\SharpNav\MathHelper.cs" />
+    <Compile Include="..\SharpNav\CompactHeightfield.cs" />
+    <Compile Include="..\SharpNav\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\SharpNav\Span.cs" />
+    <Compile Include="..\SharpNav\SpanReference.cs" />
+    <Compile Include="..\SharpNav\TiledNavMesh.cs" />
+    <Compile Include="..\SharpNav\Geometry\Vector2.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="..\SharpNav\Geometry\Vector3.cs">
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="..\SharpNav\Geometry\Vector3Extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <!-- Other items -->
+  <!-- NuGet and Build Targets -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

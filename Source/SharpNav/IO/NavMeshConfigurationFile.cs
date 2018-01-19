@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if IO_YAML
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -68,3 +69,4 @@ namespace SharpNav.IO
 		}
 	}
 }
+#endif
