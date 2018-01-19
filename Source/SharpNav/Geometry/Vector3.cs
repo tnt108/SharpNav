@@ -22,8 +22,6 @@ SOFTWARE.
  */
 #endregion
 
-#if !MONOGAME && !OPENTK && !SHARPDX && !XNA && !UNITY3D
-
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -1172,5 +1170,3 @@ namespace SharpNav.Geometry
 #endregion
 	}
 }
-
-#endif

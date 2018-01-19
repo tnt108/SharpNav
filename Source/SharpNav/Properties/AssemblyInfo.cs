@@ -20,11 +20,7 @@ using System.Runtime.InteropServices;
 
 [assembly: CLSCompliant(true)]
 
-#if MONOGAME
-[assembly: InternalsVisibleTo("SharpNav.Tests")]
-#else
 [assembly: InternalsVisibleTo("SharpNav.Tests, PublicKey=00240000048000009400000006020000002400005253413100040000010001007db4cb90a9a4ef6908e5293fffcba3c76e490fd182595f7fd6fa32801b29ed416181383f2da9dac4271ae5f3c89a66ece56668415dcc274d775b1efbe4e013e840221fb12cfd99ffaf405ad124e5d301ba55610ee4fcf25687faf3434574b397773e720fb6573eb2e935e585926e365a1d8ac2fd864cf0b9b11932d2abb4e9af")]
-#endif
 
 // I'm attempting to follow Semantic Versioning with the built-in C# Version class as a fallback
 // or alternative to NuGet's semver support. This means I need to do some special things with this
@@ -63,15 +59,7 @@ using System.Runtime.InteropServices;
 // each version is signed with a separate strong name key, which provides a few extra benefits. Multiple
 // integrated versions of SharpNav can now be installed to the GAC without worrying about them interfering
 // with one another.
-#if MONOGAME
-[assembly: AssemblyInformationalVersion("1.0.0-alpha.2+monogame")]
-#elif OPENTK
-[assembly: AssemblyInformationalVersion("1.0.0-alpha.2+opentk")]
-#elif SHARPDX
-[assembly: AssemblyInformationalVersion("1.0.0-alpha.2+sharpdx")]
-#else
 [assembly: AssemblyInformationalVersion("1.0.0-alpha.2")]
-#endif
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
