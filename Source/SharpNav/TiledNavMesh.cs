@@ -101,9 +101,9 @@ namespace SharpNav
 
 		public float TileHeight { get { return tileHeight; } }
 
-		public float MaxTiles { get { return maxTiles; } }
+		public int MaxTiles { get { return maxTiles; } }
 
-		public float MaxPolys { get { return maxPolys; } }
+		public int MaxPolys { get { return maxPolys; } }
 
 		/// <summary>
 		/// Gets the maximum number of tiles that can be stored

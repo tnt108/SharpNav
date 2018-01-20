@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\Binaries\SharpNav\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;STANDALONE;IO_JSON;IO_YAML</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;STANDALONE;IO_JSON;IO_YAML;IO_PROTO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <SignAssembly>true</SignAssembly>
@@ -32,7 +32,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\Binaries\SharpNav\Standalone\</OutputPath>
-    <DefineConstants>TRACE;STANDALONE;IO_JSON;IO_YAML</DefineConstants>
+    <DefineConstants>TRACE;STANDALONE;IO_JSON;IO_YAML;IO_PROTO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <SignAssembly>true</SignAssembly>
@@ -45,6 +45,9 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\protobuf-net\Net20\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,6 +97,8 @@
     <Compile Include="IO\Json\NavMeshJsonSerializer.cs" />
     <Compile Include="IO\NavMeshConfigurationFile.cs" />
     <Compile Include="IO\NavMeshSerializer.cs" />
+    <Compile Include="IO\Proto\NavMeshConverter.cs" />
+    <Compile Include="IO\Proto\NavMeshProtoSerializer.cs" />
     <Compile Include="NavMesh.cs" />
     <Compile Include="NavMeshGenerationSettings.cs" />
     <Compile Include="Crowds\ObstacleAvoidanceQuery.cs" />
@@ -146,6 +151,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <!-- Other items -->
   <!-- NuGet and Build Targets -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

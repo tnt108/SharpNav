@@ -3,6 +3,7 @@
 
 using System;
 using System.Reflection;
+using System.IO;
 using SharpNav;
 
 namespace SharpNav.IO
@@ -19,13 +20,32 @@ namespace SharpNav.IO
 		/// </summary>
 		/// <param name="path">path of file to serialize into</param>
 		/// <param name="mesh">mesh to serialize</param>
-		public abstract void Serialize(string path, TiledNavMesh mesh);
+		public virtual void Serialize(string path, TiledNavMesh mesh)
+        {
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                Serialize(stream, mesh);
+            }
+        }
 
-		/// <summary>
-		/// Deserialize navigation mesh from external file
-		/// </summary>
-		/// <param name="path">file to deserialize from</param>
-		/// <returns>deserialized mesh</returns>
-		public abstract TiledNavMesh Deserialize(string path);
-	}
+        public abstract void Serialize(Stream stream, TiledNavMesh mesh);
+
+        /// <summary>
+        /// Deserialize navigation mesh from external file
+        /// </summary>
+        /// <param name="path">file to deserialize from</param>
+        /// <returns>deserialized mesh</returns>
+        public virtual TiledNavMesh Deserialize(string path)
+        {
+            using (FileStream stream = new FileStream(path, FileMode.Open))
+            {
+                TiledNavMesh mesh = Deserialize(stream);
+                return mesh;
+            }
+
+            return null;
+        }
+
+        public abstract TiledNavMesh Deserialize(Stream stream);
+    }
 }

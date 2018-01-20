@@ -37,7 +37,7 @@ namespace SharpNav.IO.Json
 			});
 		}
 
-		public override void Serialize(string path, TiledNavMesh mesh)
+		public override void Serialize(Stream stream, TiledNavMesh mesh)
 		{
 			JObject root = new JObject();
 
@@ -65,36 +65,44 @@ namespace SharpNav.IO.Json
 			}
 
 			root.Add("tiles", tilesArray);
-			
-			File.WriteAllText(path, root.ToString());
+
+            using (StreamWriter writer = new StreamWriter(stream, System.Text.Encoding.UTF8))
+            {
+                writer.Write(root.ToString());
+            }
 		}
 
-		public override TiledNavMesh Deserialize(string path)
+		public override TiledNavMesh Deserialize(Stream stream)
 		{
-			JObject root = JObject.Parse(File.ReadAllText(path));
+            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8))
+            {
+               string text = reader.ReadToEnd();
 
-			if (root["meta"]["version"]["snj"].ToObject<int>() != FormatVersion)
-				throw new ArgumentException("The version of the file does not match the version of the parser. Consider using an older version of SharpNav or re-generating your .snj meshes.");
+                JObject root = JObject.Parse(text);
 
-			Vector3 origin = root["origin"].ToObject<Vector3>(serializer);
-			float tileWidth = root["tileWidth"].ToObject<float>(serializer);
-			float tileHeight = root["tileHeight"].ToObject<float>(serializer);
-			int maxTiles = root["maxTiles"].ToObject<int>(serializer);
-			int maxPolys = root["maxPolys"].ToObject<int>(serializer);
+                if (root["meta"]["version"]["snj"].ToObject<int>() != FormatVersion)
+                    throw new ArgumentException("The version of the file does not match the version of the parser. Consider using an older version of SharpNav or re-generating your .snj meshes.");
 
-			var mesh = new TiledNavMesh(origin, tileWidth, tileHeight, maxTiles, maxPolys);
+                Vector3 origin = root["origin"].ToObject<Vector3>(serializer);
+                float tileWidth = root["tileWidth"].ToObject<float>(serializer);
+                float tileHeight = root["tileHeight"].ToObject<float>(serializer);
+                int maxTiles = root["maxTiles"].ToObject<int>(serializer);
+                int maxPolys = root["maxPolys"].ToObject<int>(serializer);
 
-			JArray tilesToken = (JArray) root["tiles"];
-			List<NavTile> tiles = new List<NavTile>();
-			foreach (JToken tileToken in tilesToken)
-			{
-				NavPolyId tileRef;
-				NavTile tile = DeserializeMeshTile(tileToken, mesh.IdManager, out tileRef);
-				mesh.AddTileAt(tile, tileRef);
-			}
+                var mesh = new TiledNavMesh(origin, tileWidth, tileHeight, maxTiles, maxPolys);
 
-			return mesh;
-		}
+                JArray tilesToken = (JArray)root["tiles"];
+                List<NavTile> tiles = new List<NavTile>();
+                foreach (JToken tileToken in tilesToken)
+                {
+                    NavPolyId tileRef;
+                    NavTile tile = DeserializeMeshTile(tileToken, mesh.IdManager, out tileRef);
+                    mesh.AddTileAt(tile, tileRef);
+                }
+
+                return mesh;
+            }
+        }
 
 		private JObject SerializeMeshTile(NavTile tile, NavPolyId id)
 		{

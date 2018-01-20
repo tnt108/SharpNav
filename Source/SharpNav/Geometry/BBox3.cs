@@ -16,17 +16,20 @@ namespace SharpNav.Geometry
 	/// A 3d axis-aligned bounding box.
 	/// </summary>
 	[Serializable]
-	public struct BBox3 : IEquatable<BBox3>
+    [ProtoBuf.ProtoContract]
+    public struct BBox3 : IEquatable<BBox3>
 	{
-		/// <summary>
-		/// The minimum bounds.
-		/// </summary>
-		public Vector3 Min;
+        /// <summary>
+        /// The minimum bounds.
+        /// </summary>
+        [ProtoBuf.ProtoMember(1)]
+        public Vector3 Min;
 
-		/// <summary>
-		/// The maximum bounds.
-		/// </summary>
-		public Vector3 Max;
+        /// <summary>
+        /// The maximum bounds.
+        /// </summary>
+        [ProtoBuf.ProtoMember(2)]
+        public Vector3 Max;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BBox3"/> struct.

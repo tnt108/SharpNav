@@ -11,22 +11,26 @@ namespace SharpNav
 	/// A vertex inside a <see cref="PolyMesh"/>.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
-	public struct PolyVertex : IEquatable<PolyVertex>
+    [ProtoBuf.ProtoContract]
+    public struct PolyVertex : IEquatable<PolyVertex>
 	{
-		/// <summary>
-		/// The X coordinate.
-		/// </summary>
-		public int X;
+        /// <summary>
+        /// The X coordinate.
+        /// </summary>
+        [ProtoBuf.ProtoMember(1, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+        public int X;
 
-		/// <summary>
-		/// The Y coordinate.
-		/// </summary>
-		public int Y;
+        /// <summary>
+        /// The Y coordinate.
+        /// </summary>
+        [ProtoBuf.ProtoMember(2, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+        public int Y;
 
-		/// <summary>
-		/// The Z coordinate.
-		/// </summary>
-		public int Z;
+        /// <summary>
+        /// The Z coordinate.
+        /// </summary>
+        [ProtoBuf.ProtoMember(3, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+        public int Z;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PolyVertex"/> struct.

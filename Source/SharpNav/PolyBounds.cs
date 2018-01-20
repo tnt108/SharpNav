@@ -11,17 +11,20 @@ namespace SharpNav
 	/// A bounding box for vertices in a <see cref="PolyMesh"/>.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
-	public struct PolyBounds : IEquatable<PolyBounds>
+    [ProtoBuf.ProtoContract]
+    public struct PolyBounds : IEquatable<PolyBounds>
 	{
-		/// <summary>
-		/// The lower bound of the bounding box.
-		/// </summary>
-		public PolyVertex Min;
+        /// <summary>
+        /// The lower bound of the bounding box.
+        /// </summary>
+        [ProtoBuf.ProtoMember(1)]
+        public PolyVertex Min;
 
-		/// <summary>
-		/// The upper bound of the bounding box.
-		/// </summary>
-		public PolyVertex Max;
+        /// <summary>
+        /// The upper bound of the bounding box.
+        /// </summary>
+        [ProtoBuf.ProtoMember(2)]
+        public PolyVertex Max;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PolyBounds"/> struct.

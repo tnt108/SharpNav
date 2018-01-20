@@ -1362,26 +1362,42 @@ namespace SharpNav
 			return dmin;
 		}
 
-		/// <summary>
-		/// The MeshData struct contains information about vertex and triangle base and offset values for array indices
-		/// </summary>
-		public struct MeshData
+        /// <summary>
+        /// The MeshData struct contains information about vertex and triangle base and offset values for array indices
+        /// </summary>
+        [ProtoBuf.ProtoContract]
+        public struct MeshData
 		{
-			public int VertexIndex;
-			public int VertexCount;
-			public int TriangleIndex;
-			public int TriangleCount;
+            [ProtoBuf.ProtoMember(1, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int VertexIndex;
+
+            [ProtoBuf.ProtoMember(2, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int VertexCount;
+
+            [ProtoBuf.ProtoMember(3, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int TriangleIndex;
+
+            [ProtoBuf.ProtoMember(4, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int TriangleCount;
 		}
 
-		/// <summary>
-		/// The triangle info contains three vertex hashes and a flag
-		/// </summary>
-		public struct TriangleData
+        /// <summary>
+        /// The triangle info contains three vertex hashes and a flag
+        /// </summary>
+        [ProtoBuf.ProtoContract]
+        public struct TriangleData
 		{
-			public int VertexHash0;
-			public int VertexHash1;
-			public int VertexHash2;
-			public int Flags; //indicates which 3 vertices are part of the polygon
+            [ProtoBuf.ProtoMember(1, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int VertexHash0;
+
+            [ProtoBuf.ProtoMember(2, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int VertexHash1;
+
+            [ProtoBuf.ProtoMember(3, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int VertexHash2;
+
+            [ProtoBuf.ProtoMember(4, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int Flags; //indicates which 3 vertices are part of the polygon
 
 			/// <summary>
 			/// Initializes a new instance of the <see cref="TriangleData" /> struct.

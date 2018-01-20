@@ -6,55 +6,65 @@ using SharpNav.Geometry;
 
 namespace SharpNav.Pathfinding
 {
-	/// <summary>
-	/// An enumeration of the different places a point can be relative to a rectangular boundary on the XZ plane.
-	/// </summary>
-	public enum BoundarySide : byte
+    /// <summary>
+    /// An enumeration of the different places a point can be relative to a rectangular boundary on the XZ plane.
+    /// </summary>
+    [ProtoBuf.ProtoContract]
+    public enum BoundarySide : byte
 	{
-		/// <summary>
-		/// Not outside of the defined boundary.
-		/// </summary>
-		Internal = 0xff,
+        /// <summary>
+        /// Not outside of the defined boundary.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 0xff)]
+        Internal = 0xff,
 
-		/// <summary>
-		/// Only outside of the defined bondary on the X axis, in the positive direction.
-		/// </summary>
-		PlusX = 0,
+        /// <summary>
+        /// Only outside of the defined bondary on the X axis, in the positive direction.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 0)]
+        PlusX = 0,
 
-		/// <summary>
-		/// Outside of the defined boundary on both the X and Z axes, both in the positive direction.
-		/// </summary>
-		PlusXPlusZ = 1,
+        /// <summary>
+        /// Outside of the defined boundary on both the X and Z axes, both in the positive direction.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 1)]
+        PlusXPlusZ = 1,
 
-		/// <summary>
-		/// Only outside of the defined bondary on the Z axis, in the positive direction.
-		/// </summary>
-		PlusZ = 2,
+        /// <summary>
+        /// Only outside of the defined bondary on the Z axis, in the positive direction.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 2)]
+        PlusZ = 2,
 
-		/// <summary>
-		/// Outside of the defined boundary on both the X and Z axes, in the negative and positive directions respectively.
-		/// </summary>
-		MinusXPlusZ = 3,
+        /// <summary>
+        /// Outside of the defined boundary on both the X and Z axes, in the negative and positive directions respectively.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 3)]
+        MinusXPlusZ = 3,
 
-		/// <summary>
-		/// Only outside of the defined bondary on the X axis, in the negative direction.
-		/// </summary>
-		MinusX = 4,
+        /// <summary>
+        /// Only outside of the defined bondary on the X axis, in the negative direction.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 4)]
+        MinusX = 4,
 
-		/// <summary>
-		/// Outside of the defined boundary on both the X and Z axes, both in the negative direction.
-		/// </summary>
-		MinusXMinusZ = 5,
+        /// <summary>
+        /// Outside of the defined boundary on both the X and Z axes, both in the negative direction.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 5)]
+        MinusXMinusZ = 5,
 
-		/// <summary>
-		/// Only outside of the defined bondary on the Z axis, in the negative direction.
-		/// </summary>
-		MinusZ = 6,
+        /// <summary>
+        /// Only outside of the defined bondary on the Z axis, in the negative direction.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 6)]
+        MinusZ = 6,
 
-		/// <summary>
-		/// Outside of the defined boundary on both the X and Z axes, in the positive and negative directions respectively.
-		/// </summary>
-		PlusXMinusZ = 7
+        /// <summary>
+        /// Outside of the defined boundary on both the X and Z axes, in the positive and negative directions respectively.
+        /// </summary>
+        [ProtoBuf.ProtoEnum(Value = 7)]
+        PlusXMinusZ = 7
 	}
 
 	/// <summary>

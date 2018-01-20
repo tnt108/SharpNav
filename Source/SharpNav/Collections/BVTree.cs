@@ -196,20 +196,23 @@ namespace SharpNav.Collections
 			return curNode;
 		}
 
-		/// <summary>
-		/// The data stored in a bounding volume node.
-		/// </summary>
-		public struct Node
+        /// <summary>
+        /// The data stored in a bounding volume node.
+        /// </summary>
+        [ProtoBuf.ProtoContract]
+        public struct Node
 		{
-			/// <summary>
-			/// The bounding box of the node.
-			/// </summary>
-			public PolyBounds Bounds;
+            /// <summary>
+            /// The bounding box of the node.
+            /// </summary>
+            [ProtoBuf.ProtoMember(1)]
+            public PolyBounds Bounds;
 
-			/// <summary>
-			/// The index of this node in a <see cref="BVTree"/>.
-			/// </summary>
-			public int Index;
+            /// <summary>
+            /// The index of this node in a <see cref="BVTree"/>.
+            /// </summary>
+            [ProtoBuf.ProtoMember(2, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+            public int Index;
 
 			/// <summary>
 			/// An <see cref="IComparer{T}"/> implementation that only compares two <see cref="Node"/>s on the X axis.

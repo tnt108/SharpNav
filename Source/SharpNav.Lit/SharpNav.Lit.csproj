@@ -42,6 +42,9 @@
   </PropertyGroup>
   <!-- Common items -->
   <ItemGroup>
+    <Reference Include="protobuf-net">
+      <HintPath>..\protobuf-net\Net20\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
@@ -86,6 +89,12 @@
     <Compile Include="..\SharpNav\IO\Json\NavMeshJsonSerializer.cs" />
     <Compile Include="..\SharpNav\IO\NavMeshConfigurationFile.cs" />
     <Compile Include="..\SharpNav\IO\NavMeshSerializer.cs" />
+    <Compile Include="..\SharpNav\IO\Proto\NavMeshConverter.cs">
+      <Link>NavMeshConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpNav\IO\Proto\NavMeshProtoSerializer.cs">
+      <Link>NavMeshProtoSerializer.cs</Link>
+    </Compile>
     <Compile Include="..\SharpNav\NavMesh.cs" />
     <Compile Include="..\SharpNav\NavMeshGenerationSettings.cs" />
     <Compile Include="..\SharpNav\Crowds\ObstacleAvoidanceQuery.cs" />

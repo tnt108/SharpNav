@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 using SharpNav.IO.Json;
 
-namespace SharpNav.Tests
+namespace SharpNav.Tests.IO.Json
 {
 	[TestFixture]
 	class NavMeshSerializationTests
@@ -15,8 +15,8 @@ namespace SharpNav.Tests
 		[Test]
 		public void JsonSerializationTest()
 		{
-			string objPath = Path.Combine(TestContext.CurrentContext.TestDirectory, "nav_test.obj");
-			string snjPath = Path.Combine(TestContext.CurrentContext.TestDirectory, "mesh.snj");
+			string objPath = System.IO.Path.Combine(TestContext.CurrentContext.TestDirectory, "nav_test.obj");
+			string snjPath = System.IO.Path.Combine(TestContext.CurrentContext.TestDirectory, "mesh.snj");
 
 			var objModel = new ObjModel(objPath);
 			TiledNavMesh mesh = NavMesh.Generate(objModel.GetTriangles(), NavMeshGenerationSettings.Default);

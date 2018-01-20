@@ -11,7 +11,8 @@ namespace SharpNav
 	/// </summary>
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct Area : IEquatable<Area>, IEquatable<byte>
+    [ProtoBuf.ProtoContract]
+    public struct Area : IEquatable<Area>, IEquatable<byte>
 	{
 		/// <summary>
 		/// The maximum number of areas that can be defined.
@@ -33,10 +34,11 @@ namespace SharpNav
 		/// </remarks>
 		public static readonly Area Default = new Area(0xff);
 
-		/// <summary>
-		/// The identifier for an area, represented as a byte.
-		/// </summary>
-		public readonly byte Id;
+        /// <summary>
+        /// The identifier for an area, represented as a byte.
+        /// </summary>
+        [ProtoBuf.ProtoMember(1, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+        public readonly byte Id;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Area"/> struct.

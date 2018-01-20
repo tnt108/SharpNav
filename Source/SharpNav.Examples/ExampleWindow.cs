@@ -19,6 +19,7 @@ using SharpNav;
 using SharpNav.Crowds;
 using SharpNav.Geometry;
 using SharpNav.IO.Json;
+using SharpNav.IO.Proto;
 using SharpNav.Pathfinding;
 
 using Key = OpenTK.Input.Key;
@@ -118,7 +119,23 @@ namespace SharpNav.Examples
 
 			this.Title = "SharpNav Example";
 			this.Icon = SharpNav.Examples.Properties.Resources.Icon;
-		}
+            
+            //
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            //
+            string snjPath = System.IO.Path.Combine(path, "nav_test.snj");
+            TiledNavMesh deserializedMesh = new NavMeshJsonSerializer().Deserialize(snjPath);
+
+            //
+            string snbPath = System.IO.Path.Combine(path, "nav_test.snb");
+            new SharpNav.IO.Proto.NavMeshProtoSerializer().Serialize(snbPath, deserializedMesh);
+            TiledNavMesh deserializedMesh2 = new SharpNav.IO.Proto.NavMeshProtoSerializer().Deserialize(snbPath);
+
+            //
+            string snjPath2 = System.IO.Path.Combine(path, "nav_test2.snj");
+            new NavMeshJsonSerializer().Serialize(snjPath2, deserializedMesh2);
+        }
 
 		protected override void OnLoad(EventArgs e)
 		{
@@ -354,13 +371,23 @@ namespace SharpNav.Examples
 		{
 			try
 			{
-
-				tiledNavMesh = new NavMeshJsonSerializer().Deserialize(path);
-				navMeshQuery = new NavMeshQuery(tiledNavMesh, 2048);
-				hasGenerated = true;
-				displayMode = DisplayMode.NavMesh;
-			}
-			catch (Exception e)
+                string ext = System.IO.Path.GetExtension(path);
+                if (ext == ".snj")
+                {
+                    tiledNavMesh = new NavMeshJsonSerializer().Deserialize(path);
+                    navMeshQuery = new NavMeshQuery(tiledNavMesh, 2048);
+                    hasGenerated = true;
+                    displayMode = DisplayMode.NavMesh;
+                }
+                else if (ext == ".snb")
+                {
+                    tiledNavMesh = new NavMeshProtoSerializer().Deserialize(path);
+                    navMeshQuery = new NavMeshQuery(tiledNavMesh, 2048);
+                    hasGenerated = true;
+                    displayMode = DisplayMode.NavMesh;
+                }
+            }
+            catch (Exception e)
 			{
 				if (!interceptExceptions)
 					throw;
@@ -384,8 +411,16 @@ namespace SharpNav.Examples
 
 			try
 			{
-				new NavMeshJsonSerializer().Serialize(path, tiledNavMesh);
-			}
+                string ext = System.IO.Path.GetExtension(path);
+                if (ext == ".snj")
+                {
+                    new NavMeshJsonSerializer().Serialize(path, tiledNavMesh);
+                }
+                else if (ext == ".snb")
+                {
+                    new NavMeshProtoSerializer().Serialize(path, tiledNavMesh);
+                }
+            }
 			catch (Exception e)
 			{
 				if (!interceptExceptions)

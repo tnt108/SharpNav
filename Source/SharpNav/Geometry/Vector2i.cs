@@ -9,7 +9,8 @@ namespace SharpNav.Geometry
 	/// A 2d vector represented by integers.
 	/// </summary>
 	[Serializable]
-	public struct Vector2i : IEquatable<Vector2i>
+    [ProtoBuf.ProtoContract]
+    public struct Vector2i : IEquatable<Vector2i>
 	{
 		/// <summary>
 		/// A vector where both X and Y are <see cref="int.MinValue"/>.
@@ -26,15 +27,17 @@ namespace SharpNav.Geometry
 		/// </summary>
 		public static readonly Vector2i Zero = new Vector2i(0, 0);
 
-		/// <summary>
-		/// The X coordinate.
-		/// </summary>
-		public int X;
+        /// <summary>
+        /// The X coordinate.
+        /// </summary>
+        [ProtoBuf.ProtoMember(1, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+        public int X;
 
-		/// <summary>
-		/// The Y coordinate.
-		/// </summary>
-		public int Y;
+        /// <summary>
+        /// The Y coordinate.
+        /// </summary>
+        [ProtoBuf.ProtoMember(2, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+        public int Y;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Vector2i"/> struct with a specified coordinate.

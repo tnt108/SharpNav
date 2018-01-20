@@ -80,6 +80,7 @@
     <Compile Include="Geometry\ContainmentTests.cs" />
     <Compile Include="Geometry\DistanceTests.cs" />
     <Compile Include="Geometry\IntersectionTests.cs" />
+    <Compile Include="IO\Proto\NavMeshProtoSerializerTests.cs" />
     <Compile Include="MathHelperTests.cs" />
     <Compile Include="IO\Json\NavMeshJsonSerializerTests.cs" />
     <Compile Include="ObjModel.cs" />
@@ -97,6 +98,9 @@
   <ItemGroup>
     <None Include="MonoGame.Framework.dll.config" />
     <None Include="nav_test.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="nav_test.snj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

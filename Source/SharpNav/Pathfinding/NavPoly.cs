@@ -10,13 +10,16 @@ namespace SharpNav.Pathfinding
 	/// Flags representing the type of a navmesh polygon.
 	/// </summary>
 	[Flags]
-	public enum NavPolyType : byte
+    [ProtoBuf.ProtoContract]
+    public enum NavPolyType : byte
 	{
-		/// <summary>A polygon that is part of the navmesh.</summary>
-		Ground = 0,
+        /// <summary>A polygon that is part of the navmesh.</summary>
+        [ProtoBuf.ProtoEnum(Value = 0)]
+        Ground = 0,
 
-		/// <summary>An off-mesh connection consisting of two vertices.</summary>
-		OffMeshConnection = 1
+        /// <summary>An off-mesh connection consisting of two vertices.</summary>
+        [ProtoBuf.ProtoEnum(Value = 1)]
+        OffMeshConnection = 1
 	}
 
 	/// <summary>
@@ -34,7 +37,7 @@ namespace SharpNav.Pathfinding
 		/// </summary>
 		public NavPolyType PolyType { get; set; }
 
-		public List<Link> Links { get; private set; }
+		public List<Link> Links { get; set; }
 
 		/// <summary>
 		/// Gets or sets the indices of polygon's vertices

@@ -40,24 +40,28 @@ namespace SharpNav.Geometry
 	/// </remarks>
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector3 : IEquatable<Vector3>
+    [ProtoBuf.ProtoContract]
+    public struct Vector3 : IEquatable<Vector3>
 	{
-#region Fields
+        #region Fields
 
-		/// <summary>
-		/// The X component of the Vector3.
-		/// </summary>
-		public float X;
+        /// <summary>
+        /// The X component of the Vector3.
+        /// </summary>
+        [ProtoBuf.ProtoMember(1, DataFormat = ProtoBuf.DataFormat.FixedSize)]
+        public float X;
 
-		/// <summary>
-		/// The Y component of the Vector3.
-		/// </summary>
-		public float Y;
+        /// <summary>
+        /// The Y component of the Vector3.
+        /// </summary>
+        [ProtoBuf.ProtoMember(2, DataFormat = ProtoBuf.DataFormat.FixedSize)]
+        public float Y;
 
-		/// <summary>
-		/// The Z component of the Vector3.
-		/// </summary>
-		public float Z;
+        /// <summary>
+        /// The Z component of the Vector3.
+        /// </summary>
+        [ProtoBuf.ProtoMember(3, DataFormat = ProtoBuf.DataFormat.FixedSize)]
+        public float Z;
 
 #endregion
 

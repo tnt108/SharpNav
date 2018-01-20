@@ -8,14 +8,16 @@ namespace SharpNav.Pathfinding
 {
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public struct NavPolyId : IEquatable<NavPolyId>
+    [ProtoBuf.ProtoContract]
+    public struct NavPolyId : IEquatable<NavPolyId>
 	{
 		/// <summary>
 		/// A null ID that isn't associated with any polygon or tile.
 		/// </summary>
 		public static readonly NavPolyId Null = new NavPolyId(0);
 
-		private int bits;
+        [ProtoBuf.ProtoMember(1, DataFormat = ProtoBuf.DataFormat.TwosComplement)]
+        private int bits;
 
 		public NavPolyId(int raw)
 		{
